@@ -3,14 +3,16 @@ import Tweet from "./Tweet";
 import "./App.css";
 
 function App() {
-  const [isRed, setRed] = useState(false);
-  const [count, setCount] = useState(0);
+  const [users, setUsers] = useState([
+    { name: "Ed", message: "Hello there" },
+    { name: "John", message: "I am the king of the north" },
+    { name: "Traversy", message: "I am awasome" }
+  ]);
   return (
     <div className="App">
-      <Tweet name="Vitor" />
-      <Tweet name="Aline" />
-      <Tweet name="Odir" />
-      <Tweet name="Marcia" />
+      {users.map(user => (
+        <Tweet name={user.name} message={user.message} />
+      ))}
     </div>
   );
 }
